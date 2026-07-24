@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 99%;
+    --foreground: 210 40% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 8%;
+    --primary: 203 75% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 16% 40%;
+    --accent: 190 80% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 203 75% 45%;
+    --radius: 0.625rem;
+    --chart-1: 190 80% 53%;
+    --chart-2: 203 75% 45%;
+    --chart-3: 210 80% 30%;
+    --chart-4: 170 70% 45%;
+    --chart-5: 200 90% 60%;
+  }
+
+  .dark {
+    --background: 210 50% 6%;
+    --foreground: 210 30% 95%;
+    --card: 210 45% 9%;
+    --card-foreground: 210 30% 95%;
+    --popover: 210 45% 9%;
+    --popover-foreground: 210 30% 95%;
+    --primary: 195 85% 55%;
+    --primary-foreground: 210 50% 6%;
+    --secondary: 200 80% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 35% 15%;
+    --muted-foreground: 210 20% 60%;
+    --accent: 190 80% 53%;
+    --accent-foreground: 210 50% 6%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 35% 18%;
+    --input: 210 35% 18%;
+    --ring: 195 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+  }
+  p {
+    line-height: 1.6;
+  }
+  
+  /* RTL Support for Arabic */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+  .text-gradient-brand-soft {
+    @apply bg-gradient-brand-soft bg-clip-text text-transparent;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  :root.dark .glass {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  :root.dark .glass-strong {
+    background: rgba(5, 24, 40, 0.82);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Accessibility — high contrast mode */
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --primary: 210 100% 30%;
+  --primary-foreground: 0 0% 100%;
+  --border: 0 0% 0%;
+  --input: 0 0% 0%;
+  --muted-foreground: 0 0% 20%;
+}
+.dark.high-contrast {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --primary: 190 100% 60%;
+  --primary-foreground: 0 0% 0%;
+  --border: 0 0% 100%;
+  --input: 0 0% 100%;
+  --muted-foreground: 0 0% 80%;
+}
+
+/* Large text accessibility mode */
+.large-text {
+  font-size: 1.125rem;
+}
+.large-text h1 { font-size: 2.75rem; }
+.large-text h2 { font-size: 2.25rem; }
+.large-text h3 { font-size: 1.75rem; }
+.large-text p { font-size: 1.125rem; line-height: 1.7; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-200 dark:bg-brand-800 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-300 dark:bg-brand-700;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
