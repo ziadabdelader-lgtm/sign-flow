@@ -85,7 +85,7 @@ export function DemoPreview() {
 
           <div className="mt-8 flex justify-center">
             <Button size="lg" className="bg-white text-brand-900 hover:bg-brand-50">
-              <Play className="mr-2 h-5 w-5 fill-current" /> Watch Full Demo
+              <Play className="mr-2 h-5 w-5 fill-brand-900 text-brand-900" /> Watch Full Demo
             </Button>
           </div>
         </motion.div>

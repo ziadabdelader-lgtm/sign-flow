@@ -61,7 +61,7 @@ export function HeroSection() {
             </Button>
             <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 h-12 px-8" asChild>
               <Link href="#demo" className="flex items-center gap-2">
-                <Play className="h-4 w-4 fill-current" />
+                <Play className="h-4 w-4 fill-white text-white" />
                 Watch Demo
               </Link>
             </Button>
