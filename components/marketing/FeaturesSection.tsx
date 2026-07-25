@@ -12,51 +12,54 @@ import {
   Keyboard,
   ShieldCheck,
 } from 'lucide-react';
-
-const features = [
-  {
-    icon: Hand,
-    title: 'Sign Language Recognition',
-    description: 'Record sign language via camera and get instant text translation using MediaPipe and TensorFlow models.',
-  },
-  {
-    icon: Volume2,
-    title: 'Natural Text-to-Speech',
-    description: 'Convert any message into lifelike speech with ElevenLabs, Azure Neural, or Google TTS voices.',
-  },
-  {
-    icon: Mic,
-    title: 'Speech-to-Text',
-    description: 'Hearing users speak naturally — Whisper, Deepgram, and Azure transcribe in real time.',
-  },
-  {
-    icon: Bot,
-    title: '3D AI Avatar',
-    description: 'A fully animated 3D avatar performs sign language so deaf users can see spoken words come alive.',
-  },
-  {
-    icon: Languages,
-    title: 'AI Translation Layer',
-    description: 'Powered by GPT, Claude, and Gemini — translate between spoken and sign language seamlessly.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Enterprise Security',
-    description: 'Row-level security, protected APIs, rate limiting, and full input validation on every request.',
-  },
-  {
-    icon: Eye,
-    title: 'WCAG AA Accessible',
-    description: 'High contrast mode, large text, keyboard navigation, and screen reader support built in.',
-  },
-  {
-    icon: Keyboard,
-    title: 'Keyboard Navigation',
-    description: 'Every interaction works without a mouse — fully navigable via Tab, Enter, Space, and Escape.',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export function FeaturesSection() {
+  const { t } = useTranslation();
+  
+  const features = [
+    {
+      icon: Hand,
+      title: t('signLanguageRecognitionTitle'),
+      description: t('signLanguageRecognitionDesc'),
+    },
+    {
+      icon: Volume2,
+      title: t('naturalTextToSpeechTitle'),
+      description: t('naturalTextToSpeechDesc'),
+    },
+    {
+      icon: Mic,
+      title: t('speechToTextTitle'),
+      description: t('speechToTextDesc'),
+    },
+    {
+      icon: Bot,
+      title: t('aiAvatarTitle'),
+      description: t('aiAvatarDesc'),
+    },
+    {
+      icon: Languages,
+      title: t('aiTranslationTitle'),
+      description: t('aiTranslationDesc'),
+    },
+    {
+      icon: ShieldCheck,
+      title: t('enterpriseSecurityTitle'),
+      description: t('enterpriseSecurityDesc'),
+    },
+    {
+      icon: Eye,
+      title: t('wcagAccessibleTitle'),
+      description: t('wcagAccessibleDesc'),
+    },
+    {
+      icon: Keyboard,
+      title: t('keyboardNavigationTitle'),
+      description: t('keyboardNavigationDesc'),
+    },
+  ];
+
   return (
     <section id="features" className="py-24 lg:py-32 bg-background">
       <div className="container-page">
@@ -68,7 +71,7 @@ export function FeaturesSection() {
             transition={{ duration: 0.5 }}
             className="text-3xl font-bold sm:text-4xl"
           >
-            Everything you need to communicate
+            {t('everythingYouNeed')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +80,7 @@ export function FeaturesSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-4 text-lg text-muted-foreground"
           >
-            A complete AI-powered toolkit designed for accessibility from the ground up.
+            {t('completeToolkit')}
           </motion.p>
         </div>
 

@@ -23,8 +23,10 @@ import { createClient } from '@/lib/supabase/client';
 import { useTheme } from 'next-themes';
 import { AI_CONFIG } from '@/config/ai.config';
 import type { UserSettings } from '@/types/settings';
+import { useTranslation } from 'react-i18next';
 
 export default function SettingsPage() {
+  const { t } = useTranslation();
   const { setTheme } = useTheme();
   const [settings, setSettings] = useState<UserSettings | null>(null);
   const [loading, setLoading] = useState(true);
@@ -83,20 +85,20 @@ export default function SettingsPage() {
   return (
     <div className="max-w-2xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Settings</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Customize your experience and AI providers.</p>
+        <h1 className="text-2xl font-bold">{t('settings')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('customizeExperience')}</p>
       </div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
         <Card className="p-6">
           <h2 className="text-lg font-semibold mb-1 flex items-center gap-2">
-            <SettingsIcon className="h-5 w-5 text-brand-600" /> Appearance
+            <SettingsIcon className="h-5 w-5 text-brand-600" /> {t('appearance')}
           </h2>
-          <p className="text-sm text-muted-foreground mb-4">Theme and display preferences.</p>
+          <p className="text-sm text-muted-foreground mb-4">{t('themeDisplayPreferences')}</p>
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label>Theme</Label>
+              <Label>{t('theme')}</Label>
               <Select
                 value={settings?.theme || 'system'}
                 onValueChange={(v) => {
@@ -106,9 +108,9 @@ export default function SettingsPage() {
               >
                 <SelectTrigger className="w-32"><SelectValue /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="light">Light</SelectItem>
-                  <SelectItem value="dark">Dark</SelectItem>
-                  <SelectItem value="system">System</SelectItem>
+                  <SelectItem value="light">{t('light')}</SelectItem>
+                  <SelectItem value="dark">{t('dark')}</SelectItem>
+                  <SelectItem value="system">{t('system')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -118,7 +120,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Eye className="h-4 w-4 text-muted-foreground" />
-                <Label htmlFor="highContrast">High Contrast</Label>
+                <Label htmlFor="highContrast">{t('highContrast')}</Label>
               </div>
               <Switch
                 id="highContrast"
@@ -130,7 +132,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Type className="h-4 w-4 text-muted-foreground" />
-                <Label htmlFor="largeText">Large Text</Label>
+                <Label htmlFor="largeText">{t('largeText')}</Label>
               </div>
               <Switch
                 id="largeText"
@@ -145,15 +147,15 @@ export default function SettingsPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
         <Card className="p-6">
           <h2 className="text-lg font-semibold mb-1 flex items-center gap-2">
-            <Languages className="h-5 w-5 text-brand-600" /> AI Providers
+            <Languages className="h-5 w-5 text-brand-600" /> {t('aiProviders')}
           </h2>
-          <p className="text-sm text-muted-foreground mb-4">Choose which AI services power your conversations.</p>
+          <p className="text-sm text-muted-foreground mb-4">{t('chooseAiServices')}</p>
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Mic className="h-4 w-4 text-muted-foreground" />
-                <Label>Speech to Text</Label>
+                <Label>{t('speechToText')}</Label>
               </div>
               <Select
                 value={settings?.stt_provider || AI_CONFIG.stt.provider}
@@ -171,7 +173,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Volume2 className="h-4 w-4 text-muted-foreground" />
-                <Label>Text to Speech</Label>
+                <Label>{t('textToSpeech')}</Label>
               </div>
               <Select
                 value={settings?.tts_provider || AI_CONFIG.tts.provider}
@@ -189,7 +191,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Languages className="h-4 w-4 text-muted-foreground" />
-                <Label>Translation</Label>
+                <Label>{t('translation')}</Label>
               </div>
               <Select
                 value={settings?.translation_provider || AI_CONFIG.translation.provider}
@@ -207,7 +209,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bot className="h-4 w-4 text-muted-foreground" />
-                <Label>Avatar</Label>
+                <Label>{t('avatar')}</Label>
               </div>
               <Select
                 value={settings?.avatar_provider || AI_CONFIG.avatar.provider}
@@ -228,9 +230,9 @@ export default function SettingsPage() {
       <div className="flex items-center gap-3">
         <Button onClick={handleSave} disabled={saving} className="bg-brand-600 hover:bg-brand-700">
           {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
-          {saving ? 'Saving...' : 'Save Settings'}
+          {saving ? t('saving') : t('saveSettings')}
         </Button>
-        {saved && <span className="text-sm text-success">Settings saved!</span>}
+        {saved && <span className="text-sm text-success">{t('settingsSaved')}</span>}
       </div>
     </div>
   );

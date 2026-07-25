@@ -15,6 +15,7 @@ import { StatsCard } from '@/components/dashboard/StatsCard';
 import { RecentConversations } from '@/components/dashboard/RecentConversations';
 import { UsageChart } from '@/components/dashboard/UsageChart';
 import { createClient } from '@/lib/supabase/client';
+import { useTranslation } from 'react-i18next';
 
 interface ConversationItem {
   id: string;
@@ -24,6 +25,7 @@ interface ConversationItem {
 }
 
 export default function DashboardPage() {
+  const { t } = useTranslation();
   const [stats, setStats] = useState({
     totalConversations: 0,
     totalTranslations: 0,
@@ -72,42 +74,42 @@ export default function DashboardPage() {
         className="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
       >
         <div>
-          <h1 className="text-2xl font-bold">Dashboard</h1>
+          <h1 className="text-2xl font-bold">{t('dashboard')}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Welcome back to your communication hub.
+            {t('welcomeBackHub')}
           </p>
         </div>
         <Button className="bg-brand-600 hover:bg-brand-700" asChild>
           <Link href="/conversation/new">
-            <Plus className="mr-2 h-4 w-4" /> New Conversation
+            <Plus className="mr-2 h-4 w-4" /> {t('newConversation')}
           </Link>
         </Button>
       </motion.div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatsCard
-          label="Total Conversations"
+          label={t('totalConversations')}
           value={stats.totalConversations}
           icon={MessageSquare}
           trend="+12%"
           delay={0}
         />
         <StatsCard
-          label="Translations"
+          label={t('translations')}
           value={stats.totalTranslations}
           icon={Languages}
           trend="+8%"
           delay={0.1}
         />
         <StatsCard
-          label="Speech Minutes"
+          label={t('speechMinutes')}
           value={stats.totalSpeechMinutes}
           icon={Volume2}
           trend="+15%"
           delay={0.15}
         />
         <StatsCard
-          label="Active Now"
+          label={t('activeNow')}
           value={stats.activeConversations}
           icon={Clock}
           delay={0.2}
