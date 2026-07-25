@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Hand, Mic, MessageSquare } from 'lucide-react';
+import { ArrowRight, Sparkles, Hand, Mic, MessageSquare, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function HeroSection() {
@@ -60,7 +60,10 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 h-12 px-8" asChild>
-              <Link href="#demo">Watch Demo</Link>
+              <Link href="#demo" className="flex items-center gap-2">
+                <Play className="h-4 w-4 fill-current" />
+                Watch Demo
+              </Link>
             </Button>
           </motion.div>
 
