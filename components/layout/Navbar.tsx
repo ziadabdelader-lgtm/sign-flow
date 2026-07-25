@@ -10,8 +10,10 @@ import { ThemeToggle } from '@/components/shared/ThemeToggle';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { NAV_LINKS } from '@/config/site.config';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -49,10 +51,10 @@ export function Navbar() {
           <LanguageSwitcher />
           <ThemeToggle />
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/login">Sign In</Link>
+            <Link href="/login">{t('signIn')}</Link>
           </Button>
           <Button size="sm" className="bg-brand-600 hover:bg-brand-700" asChild>
-            <Link href="/register">Get Started</Link>
+            <Link href="/register">{t('getStarted')}</Link>
           </Button>
         </div>
 
@@ -90,10 +92,10 @@ export function Navbar() {
             ))}
             <div className="flex gap-2 pt-2">
               <Button variant="outline" size="sm" className="flex-1" asChild>
-                <Link href="/login">Sign In</Link>
+                <Link href="/login">{t('signIn')}</Link>
               </Button>
               <Button size="sm" className="flex-1 bg-brand-600 hover:bg-brand-700" asChild>
-                <Link href="/register">Get Started</Link>
+                <Link href="/register">{t('getStarted')}</Link>
               </Button>
             </div>
           </div>

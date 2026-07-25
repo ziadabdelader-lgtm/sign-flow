@@ -4,8 +4,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Hand, Mic, MessageSquare, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export function HeroSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative overflow-hidden bg-gradient-hero pt-20 pb-32 text-white">
       <div className="absolute inset-0 opacity-30">
@@ -22,7 +25,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm"
           >
             <Sparkles className="h-4 w-4 text-brand-300" />
-            AI-Powered Accessibility Platform
+            {t('aiPoweredPlatform')}
           </motion.div>
 
           <motion.h1
@@ -31,10 +34,10 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
           >
-            Accessible Communication
+            {t('accessibleCommunication')}
             <br />
             <span className="bg-gradient-brand-soft bg-clip-text text-transparent">
-              Without Barriers
+              {t('withoutBarriers')}
             </span>
           </motion.h1>
 
@@ -44,8 +47,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg text-brand-200 sm:text-xl max-w-2xl mx-auto"
           >
-            Sign Flow bridges the gap between deaf and hearing users with real-time
-            sign language recognition, AI text-to-speech, and lifelike 3D avatar animations.
+            {t('heroDescription')}
           </motion.p>
 
           <motion.div
@@ -56,13 +58,13 @@ export function HeroSection() {
           >
             <Button size="lg" className="bg-white text-brand-900 hover:bg-brand-50 h-12 px-8" asChild>
               <Link href="/register">
-                Start Free <ArrowRight className="ml-2 h-4 w-4" />
+                {t('startFree')} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white h-12 px-8" asChild>
               <Link href="#demo" className="flex items-center gap-2">
                 <Play className="h-4 w-4 fill-white" />
-                Watch Demo
+                {t('watchDemo')}
               </Link>
             </Button>
           </motion.div>
@@ -75,15 +77,15 @@ export function HeroSection() {
           >
             <div className="flex items-center gap-2">
               <Hand className="h-5 w-5 text-brand-300" />
-              Sign Language Recognition
+              {t('signLanguageRecognition')}
             </div>
             <div className="flex items-center gap-2">
               <Mic className="h-5 w-5 text-brand-300" />
-              Real-Time Speech
+              {t('realTimeSpeech')}
             </div>
             <div className="flex items-center gap-2">
               <MessageSquare className="h-5 w-5 text-brand-300" />
-              Instant Translation
+              {t('instantTranslation')}
             </div>
           </motion.div>
         </div>

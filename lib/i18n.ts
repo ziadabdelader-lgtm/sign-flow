@@ -5,12 +5,30 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
+      // Navigation
+      features: 'Features',
+      howItWorks: 'How It Works',
+      pricing: 'Pricing',
+      about: 'About',
+      signIn: 'Sign In',
+      getStarted: 'Get Started',
+      
+      // Hero Section
+      aiPoweredPlatform: 'AI-Powered Accessibility Platform',
+      accessibleCommunication: 'Accessible Communication',
+      withoutBarriers: 'Without Barriers',
+      heroDescription: 'Sign Flow bridges the gap between deaf and hearing users with real-time sign language recognition, AI text-to-speech, and lifelike 3D avatar animations.',
+      startFree: 'Start Free',
+      watchDemo: 'Watch Demo',
+      signLanguageRecognition: 'Sign Language Recognition',
+      realTimeSpeech: 'Real-Time Speech',
+      instantTranslation: 'Instant Translation',
+      
       // Auth
       welcomeBack: 'Welcome back',
       signInToContinue: 'Sign in to continue to Sign Flow',
       email: 'Email',
       password: 'Password',
-      signIn: 'Sign In',
       dontHaveAccount: "Don't have an account?",
       createOne: 'Create one',
       createAccount: 'Create your account',
@@ -55,12 +73,30 @@ const resources = {
   },
   ar: {
     translation: {
+      // Navigation
+      features: 'المميزات',
+      howItWorks: 'كيف يعمل',
+      pricing: 'الأسعار',
+      about: 'عن التطبيق',
+      signIn: 'تسجيل الدخول',
+      getStarted: 'ابدأ الآن',
+      
+      // Hero Section
+      aiPoweredPlatform: 'منصة إمكانية الوصول المدعومة بالذكاء الاصطناعي',
+      accessibleCommunication: 'تواصل سهل الوصول',
+      withoutBarriers: 'بدون حواجز',
+      heroDescription: 'ساين فلو يسد الفجوة بين المستخدمين الصم والسامعين من خلال التعرف على لغة الإشارة في الوقت الفعلي، وتحويل النص إلى كلام بالذكاء الاصطناعي، ورسوم متحركة ثلاثية الأبعاد.',
+      startFree: 'ابدأ مجاناً',
+      watchDemo: 'شاهد العرض',
+      signLanguageRecognition: 'التعرف على لغة الإشارة',
+      realTimeSpeech: 'الكلام في الوقت الفعلي',
+      instantTranslation: 'ترجمة فورية',
+      
       // Auth
       welcomeBack: 'مرحباً بعودتك',
       signInToContinue: 'سجل الدخول للمتابعة إلى ساين فلو',
       email: 'البريد الإلكتروني',
       password: 'كلمة المرور',
-      signIn: 'تسجيل الدخول',
       dontHaveAccount: 'ليس لديك حساب؟',
       createOne: 'إنشاء حساب',
       createAccount: 'إنشاء حسابك',
