@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
+import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { NAV_LINKS } from '@/config/site.config';
 import { cn } from '@/lib/utils';
 
@@ -45,6 +46,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher />
           <ThemeToggle />
           <Button variant="ghost" size="sm" asChild>
             <Link href="/login">Sign In</Link>
@@ -55,6 +57,7 @@ export function Navbar() {
         </div>
 
         <div className="flex md:hidden items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <Button
             variant="ghost"
