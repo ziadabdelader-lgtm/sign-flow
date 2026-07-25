@@ -59,9 +59,9 @@ export function HeroSection() {
                 Start Free <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 h-12 px-8" asChild>
+            <Button size="lg" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white h-12 px-8" asChild>
               <Link href="#demo" className="flex items-center gap-2">
-                <Play className="h-4 w-4 fill-white text-white" />
+                <Play className="h-4 w-4 fill-white" />
                 Watch Demo
               </Link>
             </Button>
