@@ -18,7 +18,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     // Update HTML attributes when language changes
     const handleLanguageChange = (lng: string) => {
       document.documentElement.lang = lng;
-      document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+      // Keep layout LTR for both languages
+      document.documentElement.dir = 'ltr';
     };
 
     // Set initial language
